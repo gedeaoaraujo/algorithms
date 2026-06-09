@@ -1,0 +1,18 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int compare(const void *a, const void *b) { 
+  return (*(int*)a - *(int*)b); 
+}
+
+int main() {
+  int arr[] = {4, 2, 5, 3, 1};
+  int length = sizeof(arr) / sizeof(arr[0]);
+
+  qsort(arr, length, sizeof(int), compare);
+
+  for (int i = 0; i < length; i++)
+    printf("%d ", arr[i]);
+
+  return 0;
+}
