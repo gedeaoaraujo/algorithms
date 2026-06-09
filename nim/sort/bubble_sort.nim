@@ -11,7 +11,7 @@ proc bubbleSort(arr: var openArray[int]) =
 
 proc main() =
   var arr = [6, 0, 3, 5, 7, 9, 2, 1, 4, 8]
-  bubbleSort(arr)
+  arr.bubbleSort()
 
   for i in 0 ..< arr.len():
     stdout.write $arr[i] & " "

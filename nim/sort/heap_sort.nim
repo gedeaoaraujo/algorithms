@@ -11,27 +11,29 @@ proc heapify(arr: var openArray[int], size: int, i: int) =
 
   if maximum != i:
     swap(arr[i], arr[maximum])
-    heapify(arr, size, maximum)
+    arr.heapify(size, maximum)
 
-proc heapSort(arr: var openArray[int], size: int) =
-  for i in countdown(int(size/2)-1, 0):
-    heapify(arr, size, i)
+proc heapSort(arr: var openArray[int]) =
+  for i in countdown((arr.len div 2) - 1, 0):
+    arr.heapify(arr.len, i)
 
-  for i in countdown(size-1, 0):
+  for i in countdown(arr.len - 1, 0):
     swap(arr[0], arr[i])
-    heapify(arr, i, 0)
+    arr.heapify(i, 0)
 
 proc main() =
   var arr = [9,20,7,18,5,15,3,2]
 
   echo "Original Array: "
-  for i in 0 ..< arr.len(): stdout.write $arr[i] & " "
-
+  for i in 0 ..< arr.len():
+    stdout.write $arr[i] & " "
   echo()
-  heapSort(arr, arr.len())
+
+  arr.heapSort()
   
   echo "Array after performing heap sort: "
-  for i in 0 ..< arr.len(): stdout.write $arr[i] & " "
+  for i in 0 ..< arr.len():
+    stdout.write $arr[i] & " "
   echo()
 
 when isMainModule:

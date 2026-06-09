@@ -1,7 +1,7 @@
 import sugar
 
 proc merge(
-  arr: var seq[int],
+  arr: var openArray[int],
   left: int, mid: int, right: int
 ) =
   let n1 = mid - left + 1
@@ -31,7 +31,7 @@ proc merge(
     arr[k] = rightArr[j]
     j += 1; k += 1
 
-proc mergeSort(arr: var seq[int], left: int, right: int) =
+proc mergeSort(arr: var openArray[int], left: int, right: int) =
   if left >= right: return
   let mid = left + int((right-left) / 2)
   mergeSort(arr, left, mid)
@@ -39,11 +39,10 @@ proc mergeSort(arr: var seq[int], left: int, right: int) =
   merge(arr, left, mid, right)
 
 proc main() =
-  var arr = @[12,11,13,5,6,7]
-  let length = arr.len()
+  var arr = [12,11,13,5,6,7]
+  mergeSort(arr, 0, arr.len - 1)
 
-  mergeSort(arr, 0, length-1)
-  for i in 0 ..< length:
+  for i in 0 ..< arr.len:
     stdout.write $arr[i] & " "
 
   echo()

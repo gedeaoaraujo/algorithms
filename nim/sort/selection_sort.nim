@@ -1,4 +1,4 @@
-proc selection_sort(arr: var seq[int]) =
+proc selection_sort(arr: var openArray[int]) =
   for i in 0 ..< arr.len:
     var min_idx = i
     for j in i+1 ..< arr.len:
@@ -8,7 +8,7 @@ proc selection_sort(arr: var seq[int]) =
     arr[i] = temp
 
 proc main() =
-  var arr = @[64, 25, 12, 22, 11]
+  var arr = [64, 25, 12, 22, 11]
   
   echo "Unsorted array: "
   for i in 0 ..< arr.len:

@@ -2,8 +2,7 @@ import strformat
 
 func sentinelLinearSearch(
   arr: var openArray[int],
-  length: int,
-  target: int
+  length: int, target: int
 ): int =
   let last = arr[length]
   arr[length] = target
@@ -26,10 +25,8 @@ proc main() =
   let length = arr.len() - 1
   let res = sentinelLinearSearch(arr, length, target)
 
-  if res == -1:
-    echo &"Element {target} not found"
-  else:
-    echo &"Element {target} found at index {res}"
+  if res == -1: echo &"Element {target} not found"
+  else: echo &"Element {target} found at index {res}"
 
 when isMainModule:
   main()

@@ -1,5 +1,5 @@
-proc insertionSort(arr: var openArray[int], length: int) =
-  for i in 0 ..< length:
+proc insertionSort(arr: var openArray[int]) =
+  for i in 0 ..< arr.len:
     let key = arr[i]
     var j = i - 1
 
@@ -11,16 +11,17 @@ proc insertionSort(arr: var openArray[int], length: int) =
 
 proc main() =
   var arr = [2,12,4,11,8,13,5,6]
-  let length = arr.len()
 
   echo "Unsorted array: "
-  for i in 0 ..< length: stdout.write $arr[i] & " "
+  for i in 0 ..< arr.len:
+    stdout.write $arr[i] & " "
   echo()
 
-  arr.insertionSort(length)
+  arr.insertionSort()
 
   echo "Sorted array"
-  for i in 0 ..< length: stdout.write $arr[i] & " "
+  for i in 0 ..< arr.len:
+    stdout.write $arr[i] & " "
   echo()
 
 when isMainModule:

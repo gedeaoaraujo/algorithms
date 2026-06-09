@@ -7,15 +7,10 @@ proc loopSearch(
   key: int
 ): int =
   while startArr <= endArr:
-    let mid: int = startArr + int((endArr - startArr) / 2)
-
+    let mid = startArr + (endArr - startArr) div 2
     if arr[mid] == key: return
-
-    if arr[mid] < key:
-      startArr = mid + 1
-    else:
-      endArr = mid - 1
-
+    if arr[mid] < key: startArr = mid + 1
+    else: endArr = mid - 1
   return -1
 
 proc recursiveSearch(
@@ -28,7 +23,7 @@ proc recursiveSearch(
     echo "Index out of range"
     return -1
 
-  let mid = startArr + int((endArr - startArr) / 2)
+  let mid = startArr + (endArr - startArr) div 2
   if arr[mid] == value: return mid
 
   if arr[mid] > value:

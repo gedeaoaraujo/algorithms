@@ -1,7 +1,6 @@
 proc partition(
-  arr: var seq[int],
-  low: int,
-  high: int
+  arr: var openArray[int],
+  low: int, high: int
 ): int =
   let p = arr[low]
   var i = low
@@ -16,9 +15,8 @@ proc partition(
   return j
 
 proc quick_sort(
-  arr: var seq[int],
-  low: int,
-  high: int
+  arr: var openArray[int],
+  low: int, high: int
 ) =
   if low < high:
     let pi = partition(arr, low, high)
@@ -26,7 +24,7 @@ proc quick_sort(
     quick_sort(arr, pi + 1, high)
 
 proc main() =
-  var arr = @[4,2,7,5,3,1]
+  var arr = [4,2,6,5,7,3,1]
   let length = arr.len() - 1
 
   quick_sort(arr, 0, length)

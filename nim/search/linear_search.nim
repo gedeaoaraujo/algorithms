@@ -3,7 +3,6 @@ import strformat
 func loopSearch(arr: openArray[int], key: int): int =
   for i in 0 ..< arr.len():
     if arr[i] == key: return i
-
   return -1
 
 func recursiveSearch(

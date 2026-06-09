@@ -2,13 +2,11 @@ import strformat
 
 func ternarySearch(
   arr: openArray[int], 
-  start: int, 
-  endz: int, 
-  target: int
+  start: int, endz: int, target: int
 ): int =
   if start > endz: return -1
-  let mid1 = start + int((endz - start) / 3)
-  let mid2 = endz - int((endz - start) / 3)
+  let mid1 = start + (endz - start) div 3
+  let mid2 = endz - (endz - start) div 3
 
   if arr[mid1] == target: return mid1
   if arr[mid2] == target: return mid2
@@ -22,16 +20,14 @@ func ternarySearch(
 
 proc main() =
   let target = 13
-  let arr = [1,3,5,7,9,11,13,15,17,19]
+  let arr = [3,2,1,13,9,7,6,8,5,4]
   echo(arr)
 
   let length = arr.len() - 1
   let res = ternarySearch(arr, 0, length, target)
 
-  if res == -1:
-    echo &"Element {target} not found"
-  else:
-    echo &"Element {target} found at index {res}"
+  if res == -1: echo &"Element {target} not found"
+  else: echo &"Element {target} found at index {res}"
 
 when isMainModule:
   main()
